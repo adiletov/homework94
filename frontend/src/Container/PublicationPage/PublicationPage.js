@@ -9,14 +9,20 @@ class PublicationPage extends Component {
         this.props.getPublications()
     }
     cardPublication = (publications) => {
-       return  <Grid container spacing={1} direction="column">
-            {publications && publications.map(obj =>
-                <CardPublication
-                    key={obj._id}
-                    publications={obj}
-                />
-            )}
-        </Grid>
+       if (!publications[0]){
+           return <Grid item xs>
+                No publications
+           </Grid>
+       }else{
+           return  <Grid container spacing={1} direction="column">
+               {publications && publications.map(obj =>
+                   <CardPublication
+                       key={obj._id}
+                       publications={obj}
+                   />
+               )}
+           </Grid>
+       }
     };
     render() {
         return (
