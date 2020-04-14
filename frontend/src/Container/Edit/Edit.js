@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import instLogo from "../../assets/images/instagram_logo.svg";
 import {updateProfile} from "../../Store/Action/actionUsers";
+import AvatarBlock from "../../Component/AvatarBlock/AvatarBlock";
 
 
 
@@ -77,6 +78,17 @@ class Register extends Component {
                                     />
                                 </Grid>
                                 }
+                                {
+                                    !this.state.avatar &&
+                                        <Grid item xs>
+                                            {this.props.user && this.props.user.avatar &&
+                                            <AvatarBlock user={this.props.user}/>
+                                            }
+                                        </Grid>
+                                }
+
+
+
                                 <Grid item xs>
                                     <FormElement
                                         type="file"
